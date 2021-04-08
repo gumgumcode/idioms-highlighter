@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Idioms Highlighter</title>
+
+	<link href="node_modules/highlight-within-textarea/jquery.highlight-within-textarea.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="node_modules/highlight-within-textarea/jquery.highlight-within-textarea.js"></script>
+
+	
+</head>
+<body>
+
+	<section>
+			<h2>Idioms Highlighter</h2>
+			<p>Note that this is case-insensitive.</p>
+			<textarea class="input-string">I thought this was a piece of cake but it cost me an arm and a leg..</textarea>
+			<script>
+
+				fetch("idioms.json").then(async (resp) => {
+					const idioms = await resp.json();
+
+					$('.input-string').highlightWithinTextarea({
+						highlight: idioms
+					});
+
+				})
+
+			</script>
+	</section>
+
+</body>
+</html>
